@@ -1,4 +1,6 @@
-# EX_queries_chinook### More SQL query fun from the fine folks who brought you the previous SQL exercises.
+# EX_queries_chinook
+
+### More SQL query fun from the fine folks who brought you the previous SQL exercises.
 Let's cement your SQL query bonafides with a tougher test of your new skills. Keep the Chinook db handy...
 
 ## Requirements
