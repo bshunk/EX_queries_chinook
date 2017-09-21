@@ -27,3 +27,8 @@ INNER JOIN Customer c ON c.CustomerId = i.CustomerId
 INNER JOIN Employee e ON e.EmployeeId = c.SupportRepId; 
 
 -- 8. How many Invoices were there in 2009 and 2011? What are the respective total sales for each of those years?
+
+-- 9. Looking at the InvoiceLine table, provide a query that COUNTs the number of line items for Invoice ID 37.
+SELECT InvoiceId, COUNT(InvoiceLineId) FROM InvoiceLine WHERE InvoiceId = "37"
+
+-- 10. 
