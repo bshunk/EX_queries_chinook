@@ -20,4 +20,10 @@ FROM Invoice i
 INNER JOIN Customer c ON c.CustomerId = i.CustomerId
 INNER JOIN Employee e ON e.EmployeeId = c.SupportRepId;
 
--- 7. 
+-- 7. Provide a query that shows the Invoice Total, Customer name, Country and Sale Agent name for all invoices and customers.
+SELECT DISTINCT i.Total, c.FirstName, c.LastName, c.Country, i.BillingCountry, e.FirstName, e.LastName
+FROM Invoice i
+INNER JOIN Customer c ON c.CustomerId = i.CustomerId
+INNER JOIN Employee e ON e.EmployeeId = c.SupportRepId; 
+
+-- 8. 
