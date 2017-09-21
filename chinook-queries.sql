@@ -5,8 +5,8 @@ SELECT FirstName, LastName, CustomerId, Country FROM Customer WHERE Country IS N
 SELECT * FROM Customer WHERE Country IS "Brazil";
 
 -- 3. Provide a query showing the Invoices of customers who are from Brazil. The resultant table should show the customer's full name, Invoice ID, Date of the invoice and billing country.
-SELECT c.FirstName, c.LastName, i.InvoiceId, i.InvoiceDate, i.BillingCountry 
-FROM Customer c LEFT JOIN Invoice i WHERE c.Country IS "Brazil" ;
+SELECT c.FirstName, c.LastName, i.InvoiceId, i.InvoiceDate, i.BillingCountry FROM Customer c 
+LEFT JOIN Invoice i WHERE c.Country IS "Brazil" ;
 
 -- 4. Provide a query showing only the Employees who are Sales Agents.
 SELECT * FROM Employee WHERE Title IS "Sales Support Agent";
@@ -15,14 +15,12 @@ SELECT * FROM Employee WHERE Title IS "Sales Support Agent";
 SELECT DISTINCT BillingCountry From Invoice;
 
 -- 6. Provide a query that shows the invoices associated with each sales agent. The resultant table should include the Sales Agent's full name.
-SELECT DISTINCT i.InvoiceId, e.FirstName, e.LastName
-FROM Invoice i
+SELECT DISTINCT i.InvoiceId, e.FirstName, e.LastName FROM Invoice i
 INNER JOIN Customer c ON c.CustomerId = i.CustomerId
 INNER JOIN Employee e ON e.EmployeeId = c.SupportRepId;
 
 -- 7. Provide a query that shows the Invoice Total, Customer name, Country and Sale Agent name for all invoices and customers.
-SELECT i.Total, c.FirstName, c.LastName, c.Country, i.BillingCountry, e.FirstName, e.LastName
-FROM Invoice i
+SELECT i.Total, c.FirstName, c.LastName, c.Country, i.BillingCountry, e.FirstName, e.LastName FROM Invoice i
 INNER JOIN Customer c ON c.CustomerId = i.CustomerId
 INNER JOIN Employee e ON e.EmployeeId = c.SupportRepId; 
 
@@ -31,4 +29,11 @@ INNER JOIN Employee e ON e.EmployeeId = c.SupportRepId;
 -- 9. Looking at the InvoiceLine table, provide a query that COUNTs the number of line items for Invoice ID 37.
 SELECT InvoiceId, COUNT(InvoiceLineId) FROM InvoiceLine WHERE InvoiceId = "37"
 
--- 10. 
+-- 10. Looking at the InvoiceLine table, provide a query that COUNTs the number of line items for each Invoice. HINT: GROUP BY
+SELECT InvoiceId, COUNT(InvoiceLineId) FROM InvoiceLine GROUP BY (InvoiceId)
+
+-- 11. Provide a query that includes the track name with each invoice line item.
+SELECT DISTINCT i.InvoiceLineid, t.Name AS TrackName FROM InvoiceLine i 
+INNER JOIN Track t on i.TrackId = t.TrackId 
+
+
